@@ -1,7 +1,7 @@
 /**
  * @file Plugin for replacing filebrowser dialog with dialog from Drupal media module
  */
-(function() {
+(function($) {
 
   // Traverse through the content definition and attach mediabrowser to
   // elements with 'filebrowser' attribute.
@@ -66,6 +66,7 @@
         dialog.setValueOf(parts[0], parts[1], fileUrl);
       }
     });
+    $(mediaIframe).parent().css({'z-index':'10002'});
   }
 
   CKEDITOR.plugins.add('mediaBrowser',
@@ -90,4 +91,4 @@
     }
   });
 
-})();
+})(jQuery);
